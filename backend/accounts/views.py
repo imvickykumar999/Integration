@@ -5,7 +5,9 @@ from django.contrib import messages
 from .forms import CustomLoginForm, CustomUserCreationForm
 from companies.models import Company
 from django.utils.translation import gettext_lazy as _
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def login_view(request):
     if request.method == 'POST':
         form = CustomLoginForm(data=request.POST)
@@ -23,6 +25,7 @@ def login_view(request):
         form = CustomLoginForm()
     return render(request, 'accounts/login.html', {'form': form})
 
+@csrf_exempt
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)

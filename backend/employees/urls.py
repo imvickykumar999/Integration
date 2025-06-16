@@ -1,5 +1,5 @@
 from django.urls import path
-# from . import views # Removed as template views are no longer used
+from . import views
 from . import api_views
 
 app_name = 'employees'
@@ -14,5 +14,5 @@ urlpatterns = [
     # path('add/', views.add_employee, name='add_employee'),
     # path('<uuid:employee_id>/edit/', views.edit_employee, name='edit_employee'),
     # path('<uuid:employee_id>/delete/', views.delete_employee, name='delete_employee'),
-    # path('dashboard/', views.employee_dashboard, name='employee_dashboard'),
+    path('dashboard/', views.employee_dashboard, name='employee_dashboard'),
 ] 
